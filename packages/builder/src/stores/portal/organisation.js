@@ -6,7 +6,7 @@ const DEFAULT_CONFIG = {
   platformUrl: "",
   logoUrl: undefined,
   docsUrl: undefined,
-  company: "Budibase",
+  company: "Smart Forms System",
   oidc: undefined,
   google: undefined,
   oidcCallbackUrl: "",

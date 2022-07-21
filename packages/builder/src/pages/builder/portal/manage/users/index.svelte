@@ -80,7 +80,7 @@
     <Table
       on:click={({ detail }) => {
         let isUserBuilder = $auth.isBuilder
-        let isClickedUserBuilder = detail.builder.global
+        let isClickedUserBuilder = detail.builder && detail.builder.global
         if (isClickedUserBuilder && !isUserBuilder) {
           console.log(
             "we do not allow non-bulder to access builder's user information"

@@ -20,7 +20,7 @@
   import UpdateUserInfoModal from "components/settings/UpdateUserInfoModal.svelte"
   import ChangePasswordModal from "components/settings/ChangePasswordModal.svelte"
   import { processStringSync } from "@budibase/string-templates"
-  import Logo from "assets/bb-emblem.svg"
+  import Logo from "assets/tplus-emblem.svg"
 
   let loaded = false
   let userInfoModal

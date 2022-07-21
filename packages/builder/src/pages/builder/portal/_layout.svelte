@@ -19,7 +19,7 @@
   import UpdateUserInfoModal from "components/settings/UpdateUserInfoModal.svelte"
   import ChangePasswordModal from "components/settings/ChangePasswordModal.svelte"
   import UpdateAPIKeyModal from "components/settings/UpdateAPIKeyModal.svelte"
-  import Logo from "assets/bb-emblem.svg"
+  import Logo from "assets/tplus-emblem.svg"
   import { isEnabled, FEATURE_FLAGS } from "../../../helpers/featureFlags"
 
   let loaded = false
@@ -141,7 +141,7 @@
         <div class="branding">
           <div class="name" on:click={() => $goto("./apps")}>
             <img src={$organisation?.logoUrl || Logo} alt="Logotype" />
-            <span>{$organisation?.company || "Budibase"}</span>
+            <span>{$organisation?.company || "Smart Forms System"}</span>
           </div>
           <div class="onboarding">
             <ConfigChecklist />
@@ -169,7 +169,7 @@
         <div class="mobile-logo">
           <img
             src={$organisation?.logoUrl || Logo}
-            alt={$organisation?.company || "Budibase"}
+            alt={$organisation?.company || "Smart Forms System"}
           />
         </div>
         <div class="user-dropdown">

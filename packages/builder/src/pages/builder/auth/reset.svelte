@@ -3,7 +3,7 @@
   import { goto, params } from "@roxi/routify"
   import PasswordRepeatInput from "components/common/users/PasswordRepeatInput.svelte"
   import { auth, organisation } from "stores/portal"
-  import Logo from "assets/bb-emblem.svg"
+  import Logo from "assets/tplus-emblem.svg"
   import { onMount } from "svelte"
 
   const resetCode = $params["?code"]

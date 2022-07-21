@@ -14,14 +14,14 @@
   import { auth, organisation, oidc, admin } from "stores/portal"
   import GoogleButton from "./_components/GoogleButton.svelte"
   import OIDCButton from "./_components/OIDCButton.svelte"
-  import Logo from "assets/bb-emblem.svg"
+  import Logo from "assets/tplus-emblem.svg"
   import { onMount } from "svelte"
 
   let username = ""
   let password = ""
   let loaded = false
 
-  $: company = $organisation.company || "Budibase"
+  $: company = $organisation.company || "Smart Forms System"
   $: multiTenancyEnabled = $admin.multiTenancy
   $: cloud = $admin.cloud
 

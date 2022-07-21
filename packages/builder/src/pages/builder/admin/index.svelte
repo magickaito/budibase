@@ -14,7 +14,7 @@
   import { admin, auth } from "stores/portal"
   import PasswordRepeatInput from "components/common/users/PasswordRepeatInput.svelte"
   import ImportAppsModal from "./_components/ImportAppsModal.svelte"
-  import Logo from "assets/bb-emblem.svg"
+  import Logo from "assets/tplus-emblem.svg"
   import { onMount } from "svelte"
 
   let adminUser = {}

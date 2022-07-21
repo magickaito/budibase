@@ -5,7 +5,7 @@
   auth.checkQueryString()
 
   $: {
-    if ($auth.user?.builder?.global) {
+    if ($auth.isBuilder || $auth.isAdmin) {
       $redirect(`./portal`)
     } else if ($auth.user) {
       $redirect(`./apps`)

@@ -31,22 +31,13 @@
   $: menu = buildMenu($auth.isAdmin)
 
   const buildMenu = admin => {
-    let menu = [
-      {
-        title: "Apps",
-        href: "/builder/portal/apps",
-      },
-    ]
-    if (isEnabled(FEATURE_FLAGS.LICENSING)) {
+    let menu = []
+    if (admin && $auth.isBuilder) {
       menu = menu.concat([
         {
-          title: "Usage",
-          href: "/builder/portal/settings/usage",
+          title: "Apps",
+          href: "/builder/portal/apps",
         },
-      ])
-    }
-    if (admin) {
-      menu = menu.concat([
         {
           title: "Users",
           href: "/builder/portal/manage/users",
@@ -80,6 +71,18 @@
           })
         }
       }
+    } else if (admin) {
+      menu = menu.concat([
+        {
+          title: "Users",
+          href: "/builder/portal/manage/users",
+          heading: "Manage",
+        },
+        {
+          title: "Theming",
+          href: "/builder/portal/settings/theming",
+        },
+      ])
     } else {
       menu = menu.concat([
         {
@@ -116,7 +119,7 @@
   onMount(async () => {
     // Prevent non-builders from accessing the portal
     if ($auth.user) {
-      if (!$auth.user?.builder?.global) {
+      if (!$auth.isBuilder && !$auth.isAdmin) {
         $redirect("../")
       } else {
         try {
@@ -200,9 +203,11 @@
             >
               Update password
             </MenuItem>
-            <MenuItem icon="UserDeveloper" on:click={() => $goto("../apps")}>
-              Close developer mode
-            </MenuItem>
+            {#if $auth.isBuilder}
+              <MenuItem icon="UserDeveloper" on:click={() => $goto("../apps")}>
+                Close developer mode
+              </MenuItem>
+            {/if}
             <MenuItem dataCy="user-logout" icon="LogOut" on:click={logout}
               >Log out
             </MenuItem>

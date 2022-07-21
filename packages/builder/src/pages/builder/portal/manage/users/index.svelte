@@ -16,7 +16,7 @@
   } from "@budibase/bbui"
   import TagsRenderer from "./_components/TagsTableRenderer.svelte"
   import AddUserModal from "./_components/AddUserModal.svelte"
-  import { users } from "stores/portal"
+  import { auth, users } from "stores/portal"
   import { createPaginationStore } from "helpers/pagination"
 
   const schema = {
@@ -78,7 +78,17 @@
       <Search bind:value={search} placeholder="" />
     </div>
     <Table
-      on:click={({ detail }) => $goto(`./${detail._id}`)}
+      on:click={({ detail }) => {
+        let isUserBuilder = $auth.isBuilder
+        let isClickedUserBuilder = detail.builder.global
+        if (isClickedUserBuilder && !isUserBuilder) {
+          console.log(
+            "we do not allow non-bulder to access builder's user information"
+          )
+        } else {
+          $goto(`./${detail._id}`)
+        }
+      }}
       {schema}
       data={$users.data}
       allowEditColumns={false}
